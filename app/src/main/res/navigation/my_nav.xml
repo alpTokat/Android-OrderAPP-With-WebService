@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/anasayfaFragment2">
+    <fragment
+        android:id="@+id/anasayfaFragment2"
+        android:name="com.nexis.finalproject.ui.fragment.AnasayfaFragment"
+        android:label="AnasayfaFragment" />
+</navigation>

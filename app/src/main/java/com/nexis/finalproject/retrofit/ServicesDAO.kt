@@ -17,29 +17,26 @@ public interface ServicesDAO {
 
 
 
-    @GET("/yemekler/tumYemekleriGetir.php")
-    suspend fun yemekleriGetir(): Call<YemeklerCevap>
+    @GET("yemekler/tumYemekleriGetir.php")
+    fun tumYemekleriGetir(): Call<YemeklerCevap>
 
-    @POST("/yemekler/sepettekiYemekleriGetir.php")
+    @POST("yemekler/sepettekiYemekleriGetir.php")
     @FormUrlEncoded
-    suspend fun sepetGetir(@Field("kullanici_adi") kullanici_adi:String):Call<SepetCevap>
+    fun sepetGetir(@Field("kullanici_adi") kullanici_adi:String):Call<SepetCevap>
 
 
 
-    @POST("/yemekler/sepeteYemekEkle.php")
+    @POST("yemekler/sepeteYemekEkle.php")
     @FormUrlEncoded
-    suspend fun sepetEkle(@Field("yemek_adi") yemek_adi:String,
+    fun sepetEkle(@Field("yemek_adi") yemek_adi:String,
                           @Field("yemek_resim_adi") yemek_resim_adi:String,
                           @Field("yemek_fiyat") yemek_fiyat:Int,
                           @Field("yemek_siparis_adet") yemek_siparis_adet:Int,
                           @Field("kullanici_adi") kullanici_adi:String):Call<CRUDCevap>
 
-    @POST("/yemekler/sepettenYemekSil.php")
+    @POST("yemekler/sepettenYemekSil.php")
     @FormUrlEncoded
-    suspend fun sepetYemekSil(@Field("sepet_yemek_id") sepet_yemek_id:Int,
+    fun sepetYemekSil(@Field("sepet_yemek_id") sepet_yemek_id:Int,
                               @Field("kullanici_adi") kullanici_adi:String
     )
-
-
-
 }
