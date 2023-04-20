@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 
-public interface ServicesDAO {
+interface ServicesDAO {
     //http://kasimadalan.pe.hu/kisiler/tum_kisiler.php
     //http://kasimadalan.pe.hu/ -> BASE URL -> bu hepsinde aynı ikisini birleştireceğim
     //kisiler/tum_kisiler.php  -> Çalışacağımız kisim

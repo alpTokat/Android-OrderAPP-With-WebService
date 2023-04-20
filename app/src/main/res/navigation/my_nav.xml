@@ -2,9 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/my_nav"
-    app:startDestination="@id/anasayfaFragment2">
+    app:startDestination="@id/anasayfaFragment">
     <fragment
-        android:id="@+id/anasayfaFragment2"
+        android:id="@+id/anasayfaFragment"
         android:name="com.nexis.finalproject.ui.fragment.AnasayfaFragment"
-        android:label="AnasayfaFragment" />
+        android:label="AnasayfaFragment" >
+        <action
+            android:id="@+id/toDetay"
+            app:destination="@id/detayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detayFragment"
+        android:name="com.nexis.finalproject.ui.fragment.DetayFragment"
+        android:label="DetayFragment" >
+        <argument
+            android:name="yemek"
+            app:argType="com.nexis.finalproject.data.entity.Yemekler" />
+    </fragment>
 </navigation>
