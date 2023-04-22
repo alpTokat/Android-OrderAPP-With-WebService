@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="adet"
+            type="String" />
+        <variable
+            name="detayFragment"
+            type="com.nexis.finalproject.ui.fragment.DetayFragment" />
+        <variable
+            name="resimAdi"
+            type="String" />
 
     </data>
 
@@ -19,9 +28,10 @@
             android:id="@+id/buttonSepeteEkle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="128dp"
             android:backgroundTint="@color/buttonRenk"
             android:text="Sepete Ekle"
+            android:onClick="@{() -> detayFragment.sepeteEkle(textViewYemekAdi.getText().toString(),resimAdi, textViewYemekFiyat.getText().toString(),textViewAdet.getText().toString())}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="29dp"
-            android:text="TextView"
+            android:text="Ayran"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
@@ -55,11 +65,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
-            android:text="TextView"
+            android:text="3"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewYemekAdi" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSepeteEkle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewYemekFiyat"
+            app:layout_constraintVertical_bias="0.5">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAzalt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:onClick="@{() -> detayFragment.adetAzalt()}"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/textViewAdet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_medium_italic"
+                android:text="@{adet}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationY="5dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipArttir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:onClick="@{() -> detayFragment.adetArttır()}"
+                android:textSize="26sp" />
+        </com.google.android.material.chip.ChipGroup>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

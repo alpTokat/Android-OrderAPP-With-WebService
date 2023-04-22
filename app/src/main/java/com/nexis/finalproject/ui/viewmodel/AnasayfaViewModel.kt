@@ -12,7 +12,7 @@ class AnasayfaViewModel:ViewModel() {
 
     init {
         yemekleriYukle()
-        yemeklerListesi =yrepo.yemekleriGetir()
+        yemeklerListesi = yrepo.yemekleriGetir()
     }
 
 
