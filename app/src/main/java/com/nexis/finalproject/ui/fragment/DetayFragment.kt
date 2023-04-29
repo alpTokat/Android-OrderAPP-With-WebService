@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.nexis.finalproject.R
+import com.nexis.finalproject.data.entity.Sepet
 import com.nexis.finalproject.data.entity.Yemekler
 import com.nexis.finalproject.databinding.FragmentDetayBinding
 import com.nexis.finalproject.ui.viewmodel.DetayViewModel
@@ -40,22 +44,42 @@ class DetayFragment : Fragment() {
         binding.textViewYemekFiyat.text = gelenYemek.yemek_fiyat.toString()
 
         binding.resimAdi = gelenYemek.yemek_resim_adi
+        binding.buttonSepetGit.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.toSepet)
+        }
 
         var URL = "http://kasimadalan.pe.hu/yemekler/resimler/${gelenYemek.yemek_resim_adi}"
         Glide.with(this).load(URL).into(binding.imageViewResim)
 
 
+
         return binding.root
 
     }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: DetayViewModel by viewModels()
         viewModel = tempViewModel
     }
-
     fun sepeteEkle(yemek_adi:String, yemek_resim_adi:String, yemek_fiyat:String, yemek_siparis_adet:String){
-            viewModel.sepetEkle(yemek_adi, yemek_resim_adi, yemek_fiyat.toInt(), yemek_siparis_adet.toInt())
+        println("Sepete Tıkla Çalıştı")
+        viewModel.sepetYukle()
+
+        var adet = 0
+        var liste = viewModel.sepetYemekleriGetir()
+        if (liste != null) {
+            for(item in liste){
+                if(item.yemek_adi == yemek_adi){
+                    viewModel.sepetYemekSil(item.sepet_yemek_id)
+                    adet = item.yemek_siparis_adet
+                }
+            }
+        }
+        viewModel.sepetEkle(yemek_adi, yemek_resim_adi, yemek_fiyat.toInt(), yemek_siparis_adet.toInt()+adet)
+
     }
 
     fun adetArttır(){
@@ -66,6 +90,15 @@ class DetayFragment : Fragment() {
         val text = binding.textViewAdet.text.toString()
         if(text.toInt() > 1){
             binding.adet = (text.toInt() - 1).toString()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.sepetYukle()
+        binding.buttonSepetGit.setOnClickListener { //AnasayfaFragmentDirections
+            val gecis = DetayFragmentDirections.toSepet()
+            Navigation.findNavController(it).navigate(gecis)
         }
     }
 }

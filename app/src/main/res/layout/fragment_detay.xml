@@ -28,14 +28,26 @@
             android:id="@+id/buttonSepeteEkle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="40dp"
             android:backgroundTint="@color/buttonRenk"
-            android:text="Sepete Ekle"
             android:onClick="@{() -> detayFragment.sepeteEkle(textViewYemekAdi.getText().toString(),resimAdi, textViewYemekFiyat.getText().toString(),textViewAdet.getText().toString())}"
+            android:text="Sepete Ekle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewYemekFiyat" />
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+
+        <Button
+            android:id="@+id/buttonSepetGit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/buttonRenk"
+            android:text="Sepete Git"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSepeteEkle" />
 
         <ImageView
             android:id="@+id/imageViewResim"
@@ -73,8 +85,10 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewYemekAdi" />
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonSepeteEkle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,8 +100,8 @@
                 android:id="@+id/chipAzalt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"
                 android:onClick="@{() -> detayFragment.adetAzalt()}"
+                android:text="-"
                 android:textSize="26sp" />
 
             <TextView
@@ -104,8 +118,8 @@
                 android:id="@+id/chipArttir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
                 android:onClick="@{() -> detayFragment.adetArttır()}"
+                android:text="+"
                 android:textSize="26sp" />
         </com.google.android.material.chip.ChipGroup>
 

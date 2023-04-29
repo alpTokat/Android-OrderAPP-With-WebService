@@ -37,6 +37,5 @@ interface ServicesDAO {
     @POST("yemekler/sepettenYemekSil.php")
     @FormUrlEncoded
     fun sepetYemekSil(@Field("sepet_yemek_id") sepet_yemek_id:Int,
-                              @Field("kullanici_adi") kullanici_adi:String
-    )
+                              @Field("kullanici_adi") kullanici_adi:String):Call<CRUDCevap>
 }

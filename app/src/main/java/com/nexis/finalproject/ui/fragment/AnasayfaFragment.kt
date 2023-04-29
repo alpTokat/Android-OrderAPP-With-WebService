@@ -40,8 +40,5 @@ class AnasayfaFragment : Fragment() {
         viewModel = tempViewModel
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.yemekleriYukle()
-    }
+
 }

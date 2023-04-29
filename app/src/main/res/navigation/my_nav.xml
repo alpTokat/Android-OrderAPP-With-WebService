@@ -18,5 +18,12 @@
         <argument
             android:name="yemek"
             app:argType="com.nexis.finalproject.data.entity.Yemekler" />
+        <action
+            android:id="@+id/toSepet"
+            app:destination="@id/sepetFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.nexis.finalproject.ui.fragment.SepetFragment"
+        android:label="SepetFragment" />
 </navigation>

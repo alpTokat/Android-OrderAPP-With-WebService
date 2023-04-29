@@ -32,7 +32,7 @@ class YemeklerAdapter(var mContext:Context, var yemeklerListesi:List<Yemekler>) 
         val yemek = yemeklerListesi.get(position)
         val t = holder.binding
 
-        t.yemekFiyat = yemek.yemek_fiyat.toString()
+        t.yemekFiyat = yemek.yemek_fiyat.toString()+" TL"
         t.yemekNesnesi = yemek
         var URL = "http://kasimadalan.pe.hu/yemekler/resimler/${yemek.yemek_resim_adi}"
         Glide.with(mContext).load(URL).into(t.imageViewYemek)

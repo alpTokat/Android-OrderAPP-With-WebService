@@ -1,4 +1,10 @@
 package com.nexis.finalproject.data.entity
 
-data class SepetCevap(var sepet:List<Sepet>, var success:String){
+import java.io.Serializable
+
+data class SepetCevap(var sepet_yemekler:List<Sepet>, var success:String):Serializable{
+    override fun toString(): String {
+        return super.toString()
+
+    }
 }
